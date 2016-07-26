@@ -24,11 +24,9 @@ I_Ph=quadgk(@I_Ph_fun,0,lambda_max)    %积分得到I_Ph
 I_Total=I_Ph-ID;
 
 %% [5] V_oc(chi=0.8时)
-I_sc=0.4/1000;                          %chi=0.8 时
-FF = 0.772                              %chi=0.8 时
-P_inc = 28.84                           %w/m^2 T_rad=1600K 时
-P_ret = 0.7616*28.84                    % T_rad=1600K 时
+I_sc=0.4/1000;                          %chi=0.8时
+FF = 0.772                              %chi=0.8时
+P_inc = 28.84                            %w/m^2 T_rad=1600K
+P_ret = 0.7616*28.84                    
 V_oc=(1*k*T_cell/q)*log(I_sc/I0+1)
 
-%% [6] 效率mu
-mu=(I_sc*V_oc*FF)/(P_inc-P_ret)
