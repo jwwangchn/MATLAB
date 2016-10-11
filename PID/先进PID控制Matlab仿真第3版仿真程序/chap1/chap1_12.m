@@ -7,8 +7,12 @@ sys=tf(400,[1,50,0]);
 dsys=c2d(sys,ts,'z');
 [num,den]=tfdata(dsys,'v');
 
-u_1=0.0;u_2=0.0;u_3=0.0;
-y_1=0;y_2=0;y_3=0;
+u_1=0.0;
+u_2=0.0;
+u_3=0.0;
+y_1=0;
+y_2=0;
+y_3=0;
 
 x=[0,0,0]';
 
@@ -31,11 +35,16 @@ for k=1:1:1000
    if u(k)<=-10
       u(k)=-10;
    end   
-   y(k)=-den(2)*y_1-den(3)*y_2+num(2)*u_1+num(3)*u_2;
+   y(k)=-den(2)*y_1 - den(3)*y_2 + num(2)*u_1 + num(3)*u_2;
    
    error=yd(k)-y(k);
-   u_3=u_2;u_2=u_1;u_1=u(k);
-   y_3=y_2;y_2=y_1;y_1=y(k);
+   u_3=u_2;
+   u_2=u_1
+   u_1=u(k);
+   
+   y_3=y_2;
+   y_2=y_1;
+   y_1=y(k);
    
    x(1)=error-error_1;             %Calculating P
    x(2)=error-2*error_1+error_2;   %Calculating D
